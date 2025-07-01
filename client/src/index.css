@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cache complètement la bannière Replit */
+iframe[src*="replit"],
+div[data-replit-banner],
+.replit-banner,
+[class*="replit"],
+[id*="replit"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(226, 84%, 32%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* TensioCare Medical Colors */
+  --navy: hsl(226, 84%, 32%);
+  --light-blue: hsl(199, 95%, 94%);
+  --turquoise: hsl(188, 95%, 43%);
+  --amber-alert: hsl(43, 96%, 56%);
+  --coral-critical: hsl(0, 91%, 71%);
+  --success-green: hsl(142, 76%, 36%);
+  
+  /* Chart colors */
+  --chart-1: hsl(226, 84%, 32%);
+  --chart-2: hsl(188, 95%, 43%);
+  --chart-3: hsl(43, 96%, 56%);
+  --chart-4: hsl(0, 91%, 71%);
+  --chart-5: hsl(142, 76%, 36%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(226, 84%, 32%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .blood-pressure-normal {
+    background: linear-gradient(135deg, hsl(142, 76%, 36%) 0%, hsl(142, 76%, 26%) 100%);
+  }
+  
+  .blood-pressure-elevated {
+    background: linear-gradient(135deg, hsl(43, 96%, 56%) 0%, hsl(43, 96%, 46%) 100%);
+  }
+  
+  .blood-pressure-critical {
+    background: linear-gradient(135deg, hsl(0, 91%, 71%) 0%, hsl(0, 91%, 61%) 100%);
+  }
+  
+  .medical-card {
+    @apply bg-white rounded-2xl shadow-lg p-6 border border-border;
+  }
+  
+  .nav-item {
+    @apply flex items-center space-x-3 px-4 py-3 rounded-xl transition-colors;
+  }
+  
+  .nav-item.active {
+    @apply bg-[var(--navy)] text-white;
+  }
+  
+  .nav-item:not(.active) {
+    @apply text-gray-700 hover:bg-gray-100;
+  }
+}
