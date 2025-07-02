@@ -9,6 +9,9 @@ import { DoctorLimitsProvider } from "@/hooks/use-doctor-limits";
 import HomePage from "@/pages/home";
 import Login from "@/pages/login";
 import DiabetoCareLogin from "@/pages/diabetocare-login";
+import TensioCareAdminLogin from "@/pages/tensiocare-admin-login";
+import DiabetoCareAdminLogin from "@/pages/diabetocare-admin-login";
+import ConsultationsAdminLogin from "@/pages/consultations-admin-login";
 import DiabetoCarePatientDashboard from "@/pages/diabetocare-patient-dashboard";
 import DiabetoCareDoctorDashboard from "@/pages/diabetocare-doctor-dashboard";
 import DiabetoCareAdminDashboard from "@/pages/diabetocare-admin-dashboard";
@@ -116,6 +119,9 @@ function Router() {
       <Route path="/" component={HomePage} />
       <Route path="/login" component={Login} />
       <Route path="/diabetocare-login" component={DiabetoCareLogin} />
+      <Route path="/tensiocare-admin-login" component={TensioCareAdminLogin} />
+      <Route path="/diabetocare-admin-login" component={DiabetoCareAdminLogin} />
+      <Route path="/consultations-admin-login" component={ConsultationsAdminLogin} />
       
       {/* DiabetoCare authenticated routes */}
       <Route path="/diabetocare-patient-dashboard">
@@ -295,6 +301,13 @@ function Router() {
       </Route>
       <Route path="/consultations-doctor-consultation">
         {!user ? <ConsultationsLogin /> : <ConsultationsDoctorConsultation />}
+      </Route>
+      
+
+      
+      {/* Route simple pour Consultations admin dashboard */}
+      <Route path="/consultations-admin-dashboard">
+        {!user ? <ConsultationsAdminLogin /> : <ConsultationsAdminDashboard />}
       </Route>
       
       <Route path="*">
